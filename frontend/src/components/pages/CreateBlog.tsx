@@ -27,16 +27,16 @@ const [pubUrl, setPubUrl] = useState<string | null>(null);
 
     try {
         // presign -> S3 -> create
-        if(!file == null){
-            const presign = await apiClient.post("/blogs/presign", {
-                type: file?.type
-            });
+        // if(!file == null){
+        //     const presign = await apiClient.post("/blogs/presign", {
+        //         type: file?.type
+        //     });
     
-            setPubUrl(presign.data.publicUrl);
+        //     setPubUrl(presign.data.publicUrl);
             
-            const putnUrl = presign.data.putUrl;
-            await apiClient.put(putnUrl, {file: file});
-        }
+        //     const putnUrl = presign.data.putUrl;
+        //     await apiClient.put(putnUrl, {file});
+        // }
 
         const response = await apiClient.post("/blogs/blogs", {
             title, content, pubUrl
